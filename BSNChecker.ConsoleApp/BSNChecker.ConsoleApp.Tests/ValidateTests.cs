@@ -19,7 +19,7 @@ namespace BSNChecker.ConsoleApp.Tests
         }
 
         [Fact]
-        public void Validate_ShouldReturnFalse_WithInvalidParameters()
+        public void Validate_ShouldReturnFalse_WithToShortInput()
         {
             var validator = new Validator();
             Assert.False(validator.ValidateBsnNumber("0000"));

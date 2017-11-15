@@ -1,5 +1,4 @@
-﻿using System.Runtime.Remoting.Messaging;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace BSNChecker.ConsoleApp
 {
@@ -7,12 +6,7 @@ namespace BSNChecker.ConsoleApp
     {
         public bool ValidateBsnNumber(string input)
         {
-            if (input.Length != 8 && input.Length != 9)
-            {
-                return false;
-            }
-
-            Regex regex = new Regex(@"[0-9]");
+            Regex regex = new Regex(@"^[0-9]{9}$");
 
             return regex.IsMatch(input);
         }
