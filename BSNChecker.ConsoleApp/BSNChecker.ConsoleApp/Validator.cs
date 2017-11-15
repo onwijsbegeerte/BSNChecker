@@ -7,7 +7,7 @@ namespace BSNChecker.ConsoleApp
     {
         public bool ValidateBsnNumber(string input)
         {
-            if (input.Length != 8 || input.Length != 9)
+            if (input.Length != 8 && input.Length != 9)
             {
                 return false;
             }
