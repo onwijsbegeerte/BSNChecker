@@ -32,6 +32,7 @@ namespace BSNChecker.ConsoleApp.Tests
         [Theory]
         [InlineData("9", 9)]
         [InlineData("99", 27)]
+        [InlineData("736160221", 176)]
         public void elfCheckerMultiply_ShouldReturnValidNumber_WithValidParameters(string input, int expected)
         {
             var elfChecker = new ElfChecker();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace BSNChecker.ConsoleApp
@@ -16,7 +17,7 @@ namespace BSNChecker.ConsoleApp
 
         public int Multiply(string input)
         {
-            var array = input.ToCharArray();
+            var array = input.Reverse().ToArray();
             var result = 0;
 
             for (var i = 0; i  < array.Length ; i++)
