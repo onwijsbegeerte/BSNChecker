@@ -69,6 +69,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ElfCheckTests.cs" />
     <Compile Include="ValidateTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
