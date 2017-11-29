@@ -10,22 +10,25 @@ namespace BSNChecker.ConsoleApp.Tests
             Assert.NotNull(elfChecker);
         }
 
-        [Fact]
-        public void elfCheckerCheck_ShouldReturnTrue_WithValidParameters()
+        [Theory]
+        [InlineData("736160221")]
+        [InlineData("111222333")]
+        [InlineData("614649328")]
+        public void elfCheckerCheck_ShouldReturnTrue_WithValidParameters(string input)
         {
-            //123456782
-            //111222333 .
-
             var elfChecker = new ElfChecker();
-            var result = elfChecker.Check("123456782");
+            var result = elfChecker.Check(input);
             Assert.True(result);
         }
 
-        [Fact]
-        public void elfCheckerCheck_ShouldReturnFalse_WithInvalidParameters()
+        [Theory]
+        [InlineData("9")]
+        [InlineData("123123")]
+        [InlineData("1131")]
+        public void elfCheckerCheck_ShouldReturnFalse_WithInvalidParameters(string input)
         {
             var elfChecker = new ElfChecker();
-            var result = elfChecker.Check("9");
+            var result = elfChecker.Check(input);
             Assert.False(result);
         }
 
