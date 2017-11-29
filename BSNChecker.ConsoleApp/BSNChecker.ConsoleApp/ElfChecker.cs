@@ -8,7 +8,7 @@ namespace BSNChecker.ConsoleApp
     {
         public bool Check(string input)
         {
-            if (input.Equals("9"))
+            if (int.Parse(input) < 11 || Multiply(input) / 11 != 0)
             {
                 return false;
             }
