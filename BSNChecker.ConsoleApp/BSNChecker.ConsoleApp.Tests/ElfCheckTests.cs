@@ -3,6 +3,11 @@ namespace BSNChecker.ConsoleApp.Tests
 {
     public class ElfCheckTests
     {
+        private ElfChecker _ElfChecker;
+        public ElfCheckTests()
+        {
+            var _ElfChecker = new ElfChecker();
+        }
         [Fact]
         public void elfChecker_ShouldInitialize_WithValidParameters()
         {
@@ -19,6 +24,14 @@ namespace BSNChecker.ConsoleApp.Tests
             var elfChecker = new ElfChecker();
             var result = elfChecker.Check("123456782");
             Assert.True(result);
+        }
+
+        [Fact]
+        public void elfCheckerCheck_ShouldReturnFalse_WithInvalidParameters()
+        {
+            var elfChecker = new ElfChecker();
+            var result = elfChecker.Check("9");
+            Assert.False(result);
         }
     }
 }
