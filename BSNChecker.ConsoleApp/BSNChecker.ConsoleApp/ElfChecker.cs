@@ -12,5 +12,10 @@ namespace BSNChecker.ConsoleApp
             }
             return true;
         }
+
+        public int Multiply(string s)
+        {
+            return 9;
+        }
     }
 }

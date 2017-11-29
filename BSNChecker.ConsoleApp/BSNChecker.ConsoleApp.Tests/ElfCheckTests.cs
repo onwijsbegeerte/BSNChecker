@@ -3,11 +3,6 @@ namespace BSNChecker.ConsoleApp.Tests
 {
     public class ElfCheckTests
     {
-        private ElfChecker _ElfChecker;
-        public ElfCheckTests()
-        {
-            var _ElfChecker = new ElfChecker();
-        }
         [Fact]
         public void elfChecker_ShouldInitialize_WithValidParameters()
         {
@@ -34,12 +29,14 @@ namespace BSNChecker.ConsoleApp.Tests
             Assert.False(result);
         }
 
-        [Fact]
-        public void elfCheckerMultiply_ShouldReturnValidNumber_WithValidParameters()
+        [Theory]
+        [InlineData("9", 9)]
+        [InlineData("99", 27)]
+        public void elfCheckerMultiply_ShouldReturnValidNumber_WithValidParameters(string input, int expected)
         {
             var elfChecker = new ElfChecker();
-            var result = elfChecker.Multiply("9");
-            Assert.Equal(9, result);
+            int result = elfChecker.Multiply(input);
+            Assert.Equal(expected, result);
         }
     }
 }
