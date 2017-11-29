@@ -33,5 +33,13 @@ namespace BSNChecker.ConsoleApp.Tests
             var result = elfChecker.Check("9");
             Assert.False(result);
         }
+
+        [Fact]
+        public void elfCheckerMultiply_ShouldReturnValidNumber_WithValidParameters()
+        {
+            var elfChecker = new ElfChecker();
+            var result = elfChecker.Multiply("9");
+            Assert.Equal(9, result);
+        }
     }
 }
