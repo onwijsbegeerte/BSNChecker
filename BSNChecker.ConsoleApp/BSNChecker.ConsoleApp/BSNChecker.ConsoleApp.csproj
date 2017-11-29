@@ -46,7 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ElfChecker.cs" />
-    <Compile Include="Validator.cs" />
+    <Compile Include="BSNValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

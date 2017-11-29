@@ -1,28 +1,29 @@
-﻿using System;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Linq;
+using static System.Char;
 
 namespace BSNChecker.ConsoleApp
 {
-    public class ElfChecker
+    public interface IElfChecker
+    {
+        bool Check(string input);
+    }
+
+    public class ElfChecker : IElfChecker
     {
         public bool Check(string input)
         {
-            if (int.Parse(input) < 11 || Multiply(input) / 11 != 0)
-            {
-                return false;
-            }
-            return true;
+            bool result = multiplyByPosition(input) % 11 == 0;
+            return result;
         }
 
-        public int Multiply(string input)
+        private int multiplyByPosition(string input)
         {
             var array = input.Reverse().ToArray();
             var result = 0;
 
             for (var i = 0; i  < array.Length ; i++)
             {
-                var currentNumber = (int) Char.GetNumericValue(array[i]);
+                var currentNumber = (int) GetNumericValue(array[i]);
                 result += currentNumber * (i + 1);
             }
 
