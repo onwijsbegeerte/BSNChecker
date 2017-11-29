@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace BSNChecker.ConsoleApp
 {
@@ -13,9 +14,18 @@ namespace BSNChecker.ConsoleApp
             return true;
         }
 
-        public int Multiply(string s)
+        public int Multiply(string input)
         {
-            return 9;
+            var array = input.ToCharArray();
+            var result = 0;
+
+            for (var i = 0; i  < array.Length ; i++)
+            {
+                var currentNumber = (int) Char.GetNumericValue(array[i]);
+                result += currentNumber * (i + 1);
+            }
+
+            return result;
         }
     }
 }
