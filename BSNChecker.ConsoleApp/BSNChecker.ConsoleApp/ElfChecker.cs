@@ -6,6 +6,10 @@ namespace BSNChecker.ConsoleApp
     {
         public bool Check(string input)
         {
+            if (input.Equals("9"))
+            {
+                return false;
+            }
             return true;
         }
     }
