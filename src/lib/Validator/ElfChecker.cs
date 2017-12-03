@@ -7,7 +7,6 @@ namespace BSNChecker.ConsoleApp
     {
         bool Check(string input);
     }
-
     public class ElfChecker : IElfChecker
     {
         public bool Check(string input)

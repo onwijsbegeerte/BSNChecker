@@ -2,43 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BSNChecker.ConsoleApp;
 using Microsoft.AspNetCore.Mvc;
 
 namespace fastWebapi.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class BSNController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IBSNValidator _bsnValidator;
+        public BSNController(IBSNValidator bsnValidator)
         {
-            return new string[] { "value1", "value2" };
+            this._bsnValidator = bsnValidator;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET api/BSN/5
+        [HttpGet("{BsnNumber}")]
+        public bool Get(string BsnNumber)
         {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            Console.WriteLine(BsnNumber);
+            var result = _bsnValidator.Validate(BsnNumber);
+            return result;
         }
     }
 }

@@ -292,4 +292,7 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
+*.DS_Store
+*.vscode/
+
 # End of https://www.gitignore.io/api/csharp

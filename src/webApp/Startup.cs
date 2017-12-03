@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BSNChecker.ConsoleApp;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+
 
 namespace fastWebapi
 {
@@ -16,7 +18,6 @@ namespace fastWebapi
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            var serviceProvider = new ServiceCollection().BuildServiceProvider();
         }
 
         public IConfiguration Configuration { get; }
@@ -25,6 +26,8 @@ namespace fastWebapi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<IElfChecker, ElfChecker>();
+            services.AddTransient<IBSNValidator, BSNValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

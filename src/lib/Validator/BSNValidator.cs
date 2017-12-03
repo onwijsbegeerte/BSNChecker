@@ -2,12 +2,11 @@
 
 namespace BSNChecker.ConsoleApp
 {
-    public interface IValidator
+    public interface IBSNValidator
     {
         bool Validate(string input);
     }
-
-    public class BSNValidator : IValidator
+    public class BSNValidator : IBSNValidator
     {
         private readonly IElfChecker _elfChecker;
 
