@@ -45,5 +45,13 @@ namespace BSNChecker.ConsoleApp.Tests
             var validator = new BSNValidator(new ElfCheckerMock(false));
             Assert.False(validator.Validate("asdasdasd"));
         }
+
+        [Fact]
+        public void Validate_ShouldContainValudationRules_WithValidParameters()
+        {
+            var validator = new Validator();
+            var result = validator.Validate();
+            Assert.False(result);
+        }
     }
 }
