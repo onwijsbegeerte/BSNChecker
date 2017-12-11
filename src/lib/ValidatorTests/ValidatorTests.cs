@@ -47,11 +47,11 @@ namespace BSNChecker.ConsoleApp.Tests
         }
 
         [Fact]
-        public void Validate_ShouldContainValudationRules_WithValidParameters()
+        public void Validate_ShouldReturnTrue_WithDefaultParameters()
         {
-            var validator = new Validator();
-            var result = validator.Validate();
-            Assert.False(result);
+            var validator = new StringValidator();
+            var result = validator.Validate("test");
+            Assert.True(result);
         }
     }
 }
